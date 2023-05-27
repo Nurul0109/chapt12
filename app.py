@@ -218,7 +218,7 @@ def get_posts():
             post['thumbsup_by_me'] = bool(db.likes.find_one({"post_id": post['_id'], 'type': 'thumbsup', 'username': payload['id']}))
         return jsonify({
             'result': 'success', 
-            'msg': 'Successful fetched all posts',
+            'msg': 'Successfully fetched all posts',
             'posts': posts})
     except (jwt.ExpiredSignatureError, jwt.exceptions.DecodeError):
         return redirect(url_for('home'))
